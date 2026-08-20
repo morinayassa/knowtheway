@@ -221,7 +221,22 @@ function gameLoop(now){
 
   for(var i=objects.length-1;i>=0;i--){
     var o=objects[i];
-    var speed = 0.27 + (30 - timeLeft) * 0.012;
+    var speed;
+
+if(timeLeft > 25){
+  speed = 0.32;       // 30-25: slightly faster
+}else if(timeLeft > 20){
+  speed = 0.38;       // 25-20: faster
+}else if(timeLeft > 15){
+  speed = 0.46;       // 20-15: challenging
+}else if(timeLeft > 10){
+  speed = 0.55;       // 15-10: very fast
+}else if(timeLeft > 5){
+  speed = 0.65;       // 10-5: even faster
+}else{
+  speed = 0.78;       // 5-0: hardest
+}
+
 o.y += speed * dt;
     o.el.style.top=o.y+'px';
 
