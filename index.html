@@ -261,8 +261,8 @@ o.y += speed * dt;
     }
   }
 
-if(now-lastSpawn>500){
-    createItem(Math.random()<0.80?'booster':'obstacle');
+if(now-lastSpawn>600){
+    createItem(Math.random()<0.74?'booster':'obstacle');
     lastSpawn=now;
 }
   raf=window.requestAnimationFrame(gameLoop);
