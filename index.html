@@ -221,7 +221,8 @@ function gameLoop(now){
 
   for(var i=objects.length-1;i>=0;i--){
     var o=objects[i];
-    o.y += 0.27*dt;
+    var speed = 0.27 + (30 - timeLeft) * 0.012;
+o.y += speed * dt;
     o.el.style.top=o.y+'px';
 
     if(!o.hit && hit(o)){
@@ -246,7 +247,7 @@ function gameLoop(now){
   }
 
   if(now-lastSpawn>800){
-    createItem(Math.random()<0.70?'booster':'obstacle');
+    createItem(Math.random()<0.75?'booster':'obstacle');
     lastSpawn=now;
   }
   raf=window.requestAnimationFrame(gameLoop);
