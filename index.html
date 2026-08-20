@@ -246,7 +246,7 @@ function gameLoop(now){
   }
 
   if(now-lastSpawn>800){
-    createItem(Math.random()<0.60?'booster':'obstacle');
+    createItem(Math.random()<0.70?'booster':'obstacle');
     lastSpawn=now;
   }
   raf=window.requestAnimationFrame(gameLoop);
